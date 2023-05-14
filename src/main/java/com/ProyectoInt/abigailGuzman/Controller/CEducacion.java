@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "https://frontend-argeprog.web.app")
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
 
 public class CEducacion {
     @Autowired
@@ -41,9 +41,7 @@ public class CEducacion {
         Educacion educacion = sEducacion.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
-            
-            
-            
+           
 @DeleteMapping("/delete/{id}")
 public ResponseEntity<?> delete(@PathVariable("id") int id){
 if(!sEducacion.existsById(id)){
